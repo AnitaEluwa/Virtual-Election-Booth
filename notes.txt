@@ -1,0 +1,37 @@
+# sample request to get the token 
+import requests
+data = {'user_name':"test", "user_password":"123456789"}
+response = requests.post("http://127.0.0.1:8000/get_token/", data=data)
+token = response.text # this contain the token you ganna use it during the vote 
+
+# to make actual vote 
+import requests
+data = {'token':token, "vote_name":"cats"}
+response = requests.post("http://127.0.0.1:7000/vote_for/", data=data)
+
+# to run the apps 
+-open terminal in each project seperatly then for cla type
+python manage.py runserver 8000
+- for ctf 
+python manage.py runserver 7000
+
+# to create user or whatever goto 
+http://127.0.0.1:8000/admin/
+the admin user name:ayad
+the admin user password:1234
+
+# to see the votes 
+http://127.0.0.1:7000/admin/
+the admin user name:Abdulhadi
+the admin user password:1234
+
+#to get result 
+http://127.0.0.1:7000/get_result/
+
+# if u want to change admin user and password:
+just go to directory of ctf_server or cla_server and write in terminal the following commands:
+"python manage.py createsuperuser " and press enter
+
+# install any library in python just write the following command in terminal:
+"python -m pip install 'any_library_u_want' --user" and press enter
+pip : python install package
